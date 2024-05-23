@@ -1,0 +1,48 @@
+<h1 class="dislay-4">Commande </h1>
+<hr>
+<form [formGroup]="this.formData"  (ngSubmit)="onSubmit()" >
+    <input type="hidden" class="form-control" formControlName="id" id="id">
+    <input type="hidden" class="form-control" formControlName="nommatiere" id="nommatiere">
+ 
+    <div class="form-group">
+        <label>matiere </label>
+        <select  class="form-control" formControlName="id_matiere" id="code_article" 
+         (change)="selectPrice($event.target)">
+            <option value="0">-Select-</option>
+            <option *ngFor="let item of matiereList" value="{{item.id}}">{{item.nom}}</option>
+       </select>
+    </div>
+    <div class="form-group">
+    <label>Coefficient </label>
+    <div class="input-group">
+          <input class="form-control" formControlName="coef" id="coef" (keyup)="cal()"
+          [class.is-invalid]="!isValid && formData.value.coef==0" >
+    </div>
+    </div>
+
+    <div class="form-group">
+       <label>Note</label>
+      <div class="input-group">
+        <input name="qte"  class="form-control" formControlName="note" id="note" (keyup)="cal()"
+        [class.is-invalid]="!isValid && formData.value.note==0">
+      </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Moyenne</label>
+      <div class="input-group">
+        <input class="form-control" formControlName="moy" id="moy" readonly >
+      </div>
+    </div>    
+    
+    
+    
+    <input type="hidden" class="form-control" formControlName="tottva" id="tottva" readonly>
+    
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+    </div>
+  
+</form>

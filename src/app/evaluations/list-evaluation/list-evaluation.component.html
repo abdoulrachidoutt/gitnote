@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+    
+    <div>
+     Liste des evaluations
+    </div>
+    
+  </mat-toolbar>
+
+<table class="table table-hover">
+<thead class="thead-light">
+
+<th>Date evaluations</th>
+<th>Agent</th>
+<th>Total moyenne</th>
+
+
+<th>
+<a class="btn btn-outline-success" (click)="neweval()"><i class="fa fa-plus-square"></i>
+ Create New</a>
+</th>
+</thead>
+<tbody>
+<tr *ngFor="let eval of listeevaluation">
+<td class = "hidden">{{eval.id}}</td>
+<td>{{eval.date_eval| date:'dd/MM/yyyy'}}</td>
+<td>{{eval.nomagent}}</td>
+<td >{{eval.moy}}</td>
+
+<td>
+<a class="btn text-danger" (click)="onDelete(eval.id)"><i class="fa fa-trash fa-lg">
+
+</i> </a>
+<a class="btn text-danger" (click)="onSelect(eval)"><i class="fa fa-pencil fa-lg">
+
+</i> </a>
+</td>
+</tr>
+<div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" 
+role="status" aria-live="polite"></div></div><div class="col-sm-12 col-md-7">
+<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+  <ul class="pagination"></ul></div></div></div>
+</tbody>
+</table>
+
+
+
+

@@ -1,0 +1,61 @@
+<div>
+<h1>Liste des sous-structures</h1>
+<div>
+    <app-boutton-action
+    (clickEvent)="nouvellesousstructures()"
+  ></app-boutton-action>    
+<div class="container" style="padding: 30px;">
+    
+    
+    <mat-card>
+    <mat-card-content>
+    <table mat-table [dataSource]="sousstructures" class="mat-elevation-z8">
+    
+    
+        <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID</th>
+    <td mat-cell *matCellDef="let sousstructures">{{ sousstructures.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef>Nom</th> 
+    <td mat-cell *matCellDef="let sousstructures" class="bold-cell">{{ sousstructures.nom }}</td>
+    </ng-container> 
+
+   
+
+
+        <ng-container matColumnDef="structure">
+            <th mat-header-cell *matHeaderCellDef>structure</th> 
+            <td mat-cell *matCellDef="let sousstructures" class="bold-cell">{{ sousstructures.structure.nom }}</td>
+            </ng-container> 
+
+       
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Action</th> 
+               
+            <th mat-header-cell *matHeaderCellDef>structure</th>
+            
+            <td mat-cell *matCellDef="let sousstructures" class="bold-cell"><button class="btn btn-info mr-2">Modifier</button>
+            <button class="btn btn-danger" (click)="onDelete(sousstructures.id)">Supprimer</button></td>
+        
+            </ng-container> 
+                 
+            
+            
+
+          <tr mat-header-row *matHeaderRowDef="['id','nom','structure','action']"></tr>
+          <tr mat-row *matRowDef="let row; columns:['id','nom','structure','action']"></tr>
+
+
+          
+    </table>
+    </mat-card-content>
+    </mat-card>
+    </div>
+</div>
+</div>
+
+
+
+

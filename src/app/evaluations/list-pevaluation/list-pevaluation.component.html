@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+     Liste note
+    </div>
+    
+  </mat-toolbar>
+<table class="table table-hover">
+<thead class="thead-light">
+<th>id</th>  
+<th>Date note</th>
+<th>Agent</th>
+<th>Libelle</th>
+<th>Total Ht</th>
+<th>Total Tva</th>
+<th>Total TTC</th>
+
+<th>
+<a class="btn btn-outline-success" routerLink="/commande"><i class="fa fa-plus-square"></i> Create New</a>
+</th>
+</thead>
+<tbody>
+<tr *ngFor="let leval of commandeListe">
+<td>{{leval.id}}</td>
+<td (click)="openForEdit(leval.id)">{{leval.date_cde| date:'dd/MM/yyyy'}}</td>
+<td>{{leval.id_agent}}</td>
+<td>{{leval.nomevaluation}}</td>
+<td >{{leval.totht}}</td>
+<td >{{leval.tottva}}</td>
+<td >{{leval.totttc}}</td>
+
+
+<td>
+<a class="btn text-danger" (click)="onCommandeDelete(leval.id)"><i class="fa fa-trash fa-lg"></i> </a>
+<a class="btn text-danger" (click)="selectCommande(leval)"><i class="fa fa-pencil fa-lg"></i> </a>
+
+
+</td>
+</tr>
+<div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite"></div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"></ul></div></div></div>
+</tbody>
+</table>
+
+
+
+
+

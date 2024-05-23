@@ -1,0 +1,37 @@
+<form [formGroup]="formAgent " (ngSubmit)="submit()">
+    <div class="form-group">
+    <label for="matricule" class="form-label">Matricule</label>
+    <input  type="number" class="form-control" formControlName="matricule" >
+    </div>
+
+    <div class="form-group">
+        <label for="nom" class="form-label">Nom</label>
+        <input  type="text" class="form-control" formControlName="nom" >
+        </div>
+
+        <div class="form-group">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input  type="text" class="form-control" formControlName="prenom" >
+            </div>
+
+            <div class="form-group">
+                <label for="tel" class="form-label">Tel</label>
+                <input  type="number" class="form-control" formControlName="tel" >
+                </div>
+
+               
+    
+    
+      
+    <div class="form-group">
+        <label for="directions" class="col-form-label-col-sm-2">Structure</label>
+        <select  class="form-control" formControlName="directionId" id="directions">
+        <option >---- Selectionner une direction</option>
+        <option *ngFor ="let directions of directions" value="{{directions?.id}}">{{ directions?.nom }}</option>
+        </select>
+        </div>
+
+         <div class="form-group">
+        <Button type="submit" class="btn btn-outline-success mt-2"  >Envoyer</Button>
+    </div>
+    </form>
